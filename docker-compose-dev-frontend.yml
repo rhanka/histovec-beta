@@ -44,9 +44,13 @@ services:
       - ${FRONTEND}/.editorconfig:/${APP}/.editorconfig
       - ${FRONTEND}/.eslintignore:/${APP}/.eslintignore
       - ${FRONTEND}/.eslintrc.js:/${APP}/.eslintrc.js
+      - ${FRONTEND}/vue.config.js:/${APP}/vue.config.js
       - ${FRONTEND}/config:/${APP}/config/
       - ${FRONTEND}/src:/${APP}/src/
+      - ${FRONTEND}/public:/${APP}/public/
       - ${FRONTEND}/build:/${APP}/build/
+    ports:
+      - 8080:8080
 
 networks:
   default:

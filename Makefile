@@ -41,7 +41,6 @@ export API_GLOBAL_BURST=20 nodelay
 export API_WRITE_LIMIT_RATE=10r/m
 export API_WRITE_BURST=20 nodelay
 
-
 # data prep (data not included in repo)
 export datadir=sample_data
 export data_remote_dir=histovec-data
@@ -78,6 +77,7 @@ vm_max_count		:= $(shell cat /etc/sysctl.conf 2>&1 | egrep vm.max_map_count\s*=\
 dummy               := $(shell touch artifacts)
 include ./artifacts
 
+export VUE_APP_TITLE=APP
 export CURL_OS_OPTS=-k --retry ${openstack_retry} --retry-delay ${openstack_delay} --connect-timeout ${openstack_timeout} --fail
 DC := docker-compose
 
