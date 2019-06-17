@@ -86,7 +86,7 @@ ENV APP_VERSION ${app_ver}
 VOLUME /$app_path/dist
 
 COPY index.html ./
-COPY .babelrc .editorconfig .eslintignore .eslintrc.js ./
+COPY .babelrc .editorconfig .eslintignore .eslintrc.js vue.config.js ./
 COPY src src
 COPY config config
 COPY build build
@@ -114,6 +114,6 @@ COPY ${app_name}-${app_ver}-frontend.tar.gz .
 
 RUN  set -ex ; tar -zxvf ${app_name}-${app_ver}-frontend.tar.gz  && \
      npm run build 2>&1 | tee npm.log; egrep -E '(ERROR|error)' npm.log && exit 1 ; rm -rf npm.log \
-     rm -rf /${app_name}-${app_ver}-frontend.tar.gz
+     rm -rf ${app_name}-${app_ver}-frontend.tar.gz
 
 CMD ["npm","run","build"]
